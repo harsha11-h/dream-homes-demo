@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Compare Properties</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+<header>
+
+<h1>🏠 Dream Homes</h1>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="compare.html">Compare</a>
+
+</nav>
+
+</header>
+
+
+<section class="comparison">
+<div id="compareSummary" class="compare-summary">
+
+</div>
+<h2>🏠 Compare Properties</h2>
+<button onclick="downloadComparePDF()" class="pdf-btn">
+📄 Download Comparison PDF
+</button>
+<button onclick="shareComparison()" class="share-btn">
+    📤 Share Comparison
+</button>
+<button onclick="downloadBrochure()" class="brochure-btn">
+    📘 Download Brochure
+</button>
+<button onclick="printComparison()" class="print-btn">
+    🖨️ Print Comparison
+</button>
+<p class="compare-info">
+
+Compare up to 3 properties side by side and choose the best one for your needs.
+
+</p>
+<div id="noCompareMessage">
+    🏠 No properties selected yet.
+    Please select properties from the home page.
+</div>
+
+<table id="compareTable" class="compare-table">
+
+<tr>
+
+<th>Property</th>
+
+<th>Price</th>
+
+<th>Location</th>
+
+<th>Bedrooms</th>
+
+<th>Bathrooms</th>
+
+<th>Area</th>
+
+<th>Rating</th>
+
+<th>Wishlist</th>
+
+<th>Action</th>
+
+</tr>
+
+
+</table>
+
+
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+updateCompareTable();
+</script>
+
+<div id="imagePopup" class="image-popup">
+
+    <span class="close-popup" onclick="closeImage()">×</span>
+
+    <button class="prev-btn" onclick="previousImage()">❮</button>
+
+    <img
+    id="popupImage"
+    src=""
+    alt="Property Image"
+    onmouseover="zoomInImage()"
+    onmouseout="zoomOutImage()"
+>
+
+    <button class="next-btn" onclick="nextImage()">❯</button>
+
+</div>
+</body>
+
+</html>

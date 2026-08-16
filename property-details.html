@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luxury Villa</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🏠 Dream Homes</h1>
+
+</header>
+
+<section class="property-details">
+
+<div class="property-gallery">
+
+    <img
+        id="propertyImage"
+        src="images/house1.jpg"
+        alt="Property">
+
+</div>
+
+<div class="property-info">
+<section class="location">
+
+    <h2>📍 Property Location</h2>
+
+    <iframe
+        src="https://www.google.com/maps?q=Hyderabad&output=embed"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+
+</section>
+<h2 id="propertyTitle">Loading Property...</h2>
+
+<div class="info-box">
+
+<p>
+    <strong>💰 Price:</strong>
+    <span id="propertyPrice">Loading...</span>
+</p>
+
+<p>
+    <strong>📍 Location:</strong>
+    <span id="propertyLocation">Loading...</span>
+</p>
+
+<p>
+    <strong>🛏 Bedrooms:</strong>
+    <span id="propertyBedrooms">Loading...</span>
+</p>
+
+<p><strong>🚿 Bathrooms:</strong> 3</p>
+
+<p><strong>🚗 Parking:</strong> 2</p>
+
+<p><strong>📐 Area:</strong> 2800 Sq.ft</p>
+
+<p><strong>🏊 Swimming Pool:</strong> Yes</p>
+
+<p><strong>🌳 Garden:</strong> Available</p>
+
+<p><strong>🛡 24×7 Security:</strong> Available</p>
+
+</div>
+
+<p class="description">
+
+This luxury villa offers spacious rooms, modern interiors, a landscaped garden, private parking, and premium amenities in a peaceful neighborhood.
+
+</p>
+
+</div>
+
+<button>Book Property Visit</button>
+<h2>📅 Book a Property Visit</h2>
+
+<div class="visit-form">
+
+    <input
+        type="text"
+        id="visitorName"
+        placeholder="Your Name"
+    >
+
+    <input
+        type="email"
+        id="visitorEmail"
+        placeholder="Your Email"
+    >
+
+    <input
+        type="tel"
+        id="visitorPhone"
+        placeholder="Phone Number"
+    >
+
+    <select id="visitProperty">
+        <option value="Luxury Villa" selected>
+            Luxury Villa
+        </option>
+    </select>
+
+    <input
+        type="date"
+        id="visitDate"
+    >
+
+    <input
+        type="time"
+        id="visitTime"
+    >
+
+    <button
+        type="button"
+        onclick="bookVisit()">
+        📅 Book Visit
+    </button>
+
+    <div
+        id="visitResult"
+        class="emi-result">
+    </div>
+
+</div>
+
+</div>
+<br><br>
+
+<a href="tel:+919876543210">
+<button>📞 Call Agent</button>
+</a>
+
+<a href="https://wa.me/919876543210" target="_blank">
+<button>💬 WhatsApp</button>
+</a>
+<section class="property-info">
+
+<h2>Property Information</h2>
+
+<div class="info-grid">
+
+<div>
+    <strong>🏠 Property Type:</strong>
+    <span id="propertyType">Property</span>
+</div>
+
+<div>
+    <strong>💰 Price:</strong>
+    <span id="propertyInfoPrice">Loading...</span>
+</div>
+
+<div>
+    <strong>📍 Location:</strong>
+    <span id="propertyInfoLocation">Loading...</span>
+</div>
+
+<div>
+    <strong>🛏 Bedrooms:</strong>
+    <span id="propertyInfoBedrooms">Loading...</span>
+</div>
+<div><strong>🚿 Bathrooms:</strong> 3</div>
+
+<div><strong>🚗 Parking:</strong> 2 Cars</div>
+
+<div><strong>📐 Area:</strong> 2800 Sq.ft</div>
+
+<div><strong>🏊 Swimming Pool:</strong> Yes</div>
+
+<div><strong>🌳 Garden:</strong> Yes</div>
+
+<div><strong>📶 Wi-Fi:</strong> Available</div>
+
+<div><strong>🛡 24×7 Security:</strong> Available</div>
+
+<div><strong>⚡ Power Backup:</strong> Available</div>
+
+</div>
+
+</section>
+
+<section class="amenities">
+
+<h2>Property Amenities</h2>
+
+<div class="amenities-box">
+
+<div>🏊 Swimming Pool</div>
+
+<div>🚗 Car Parking</div>
+
+<div>🌳 Garden</div>
+
+<div>🏋️ Gym</div>
+
+<div>🛡️ 24×7 Security</div>
+
+<div>📶 High-Speed Wi-Fi</div>
+
+<div>⚡ Power Backup</div>
+
+<div>🛗 Lift Facility</div>
+
+</div>
+
+</section>
+
+<section class="emi">
+
+<h2>EMI Calculator</h2>
+
+<input type="number" id="price" placeholder="Property Price">
+
+<input type="number" id="years" placeholder="Loan Years">
+
+<input type="number" id="interest" placeholder="Interest Rate (%)">
+
+<button onclick="calculateEMI()">Calculate EMI</button>
+<div id="emiResult" class="emi-result"></div>
+<h3 id="result"></h3>
+
+</section>
+<a href="https://wa.me/919876543210?text=Hello%20I%20am%20interested%20in%20this%20property."
+   class="whatsapp-float"
+   target="_blank">
+
+    💬
+
+</a>
+<script src="js/script.js"></script>
+<script>
+
+async function loadPropertyDetails() {
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const propertyId =
+        params.get("id");
+
+    if (!propertyId) {
+        console.error("Property ID not found.");
+        return;
+    }
+
+    try {
+
+        const response =
+            await fetch(
+                "http://localhost:3000/api/properties/" + propertyId
+            );
+
+        const data =
+            await response.json();
+
+        console.log("Property details:", data);
+
+        if (!data.success) {
+
+            alert("❌ Property not found.");
+            return;
+
+        }
+
+        const property =
+            data.property;
+
+        const title =
+            document.getElementById("propertyTitle");
+
+        const price =
+            document.getElementById("propertyPrice");
+
+        const location =
+            document.getElementById("propertyLocation");
+
+        const bedrooms =
+            document.getElementById("propertyBedrooms");
+
+        const image =
+            document.getElementById("propertyImage");
+
+        if (title) {
+            title.innerText = property.name;
+        }
+
+        if (price) {
+            price.innerText =
+                "₹" +
+                Number(property.price).toLocaleString("en-IN");
+        }
+
+        if (location) {
+            location.innerText =
+                "📍 " + property.location;
+        }
+
+        if (bedrooms) {
+            bedrooms.innerText =
+                "🛏 " + property.bedrooms + " Bedrooms";
+        }
+        const infoPrice =
+    document.getElementById("propertyInfoPrice");
+
+const infoLocation =
+    document.getElementById("propertyInfoLocation");
+
+const infoBedrooms =
+    document.getElementById("propertyInfoBedrooms");
+
+if (infoPrice) {
+    infoPrice.innerText =
+        "₹" + Number(property.price).toLocaleString("en-IN");
+}
+
+if (infoLocation) {
+    infoLocation.innerText =
+        property.location;
+}
+
+if (infoBedrooms) {
+    infoBedrooms.innerText =
+        property.bedrooms;
+}
+
+        if (image) {
+            image.src =
+                "images/" + property.image;
+
+            image.alt =
+                property.name;
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Property details error:",
+            error
+        );
+
+    }
+
+}
+
+loadPropertyDetails();
+
+</script>
+</body>
+</html>

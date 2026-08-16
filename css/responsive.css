@@ -1,0 +1,352 @@
+/* Mobile Devices */
+
+@media (max-width:768px){
+
+header{
+
+flex-direction:column;
+
+}
+
+nav{
+
+margin-top:20px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+.hero h2{
+
+font-size:32px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+.search input{
+
+width:100%;
+
+}
+
+.property-card{
+
+width:100%;
+
+}
+
+.gallery-container{
+
+grid-template-columns:1fr;
+
+}
+
+.service-container{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.about-box{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.stats-container{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.dashboard-box{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+}
+/* ===========================
+   Similar Properties Responsive
+=========================== */
+
+@media (max-width:992px){
+
+    .similar-container{
+        justify-content:center;
+    }
+
+    .similar-card{
+        width:45%;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .similar-card{
+        width:100%;
+        max-width:400px;
+    }
+
+}
+@media (max-width: 768px) {
+
+    .dashboard {
+
+        padding: 15px;
+
+    }
+
+    .dashboard table {
+
+        width: 100%;
+        font-size: 14px;
+
+    }
+
+    .dashboard input,
+    .dashboard select,
+    .dashboard textarea,
+    .dashboard button {
+
+        width: 100%;
+        margin-bottom: 10px;
+
+    }
+
+}
+@media (max-width: 768px) {
+
+    .dashboard-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+}
+#bookingTable {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+}
+#inquiryTable {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+}
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+/* =========================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 30px 15px;
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .properties {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .property-card {
+        width: 100%;
+        margin: 0;
+    }
+
+    .property-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .services,
+    .gallery,
+    .agents,
+    .stats,
+    .achievements {
+        grid-template-columns: 1fr;
+    }
+
+    .search-box {
+        width: 90%;
+        margin: auto;
+    }
+
+    .compare-section {
+        width: 95%;
+        margin: auto;
+        overflow-x: auto;
+    }
+
+    .compare-table {
+        min-width: 600px;
+    }
+
+    form {
+        width: 90%;
+        margin: auto;
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    button {
+        max-width: 100%;
+    }
+
+    footer {
+        text-align: center;
+        padding: 25px 15px;
+    }
+
+}
+/* Mobile property cards */
+
+@media (max-width: 768px) {
+
+    .properties {
+        display: block !important;
+        width: 100%;
+    }
+
+    .property-card {
+        display: block !important;
+        width: 90% !important;
+        margin: 20px auto !important;
+        box-sizing: border-box;
+    }
+
+    .property-card img {
+        width: 100% !important;
+        height: auto;
+        display: block;
+    }
+
+}
+@media (max-width: 768px) {
+
+    header {
+        position: relative;
+        padding: 15px;
+    }
+
+    .logo h1 {
+        font-size: 20px;
+    }
+
+    nav {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero-content {
+        padding: 25px 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+}
+@media (max-width: 768px) {
+
+    .properties {
+        display: block !important;
+        padding: 20px 15px;
+    }
+
+    .property-card {
+        width: 90% !important;
+        margin: 20px auto !important;
+    }
+
+    .property-card img {
+        height: 210px;
+    }
+
+    .property-card h3 {
+        font-size: 20px;
+    }
+
+}

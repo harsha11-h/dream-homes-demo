@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Inquiry Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>📊 Inquiry Dashboard</h1>
+        <div class="admin-welcome">
+    <h3>👋 Welcome, Admin</h3>
+    <p>Manage your property inquiries, bookings and customers from here.</p>
+</div>
+<div class="admin-profile">
+    <h3>👤 Admin Profile</h3>
+
+    <p><strong>Name:</strong> Website Administrator</p>
+
+    <p><strong>Role:</strong> Property Manager</p>
+
+    <p><strong>Status:</strong> 🟢 Online</p>
+    <p><strong>Last Login:</strong> <span id="lastLogin">Today</span></p>
+    <p><strong>Website:</strong> 🟢 Online</p>
+</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <button onclick="location.reload()">🔄 Refresh</button>
+            <button onclick="logoutAdmin()">🚪 Logout</button>
+        </nav>
+
+    </header>
+
+    <section class="dashboard">
+
+        <h2>Customer Inquiries</h2>
+    
+        <h3>📅 Property Visit Bookings</h3>
+        <p>
+    Manage customer property visit appointments below.
+</p>
+
+<table id="bookingTable" border="1">
+
+<tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Property</th>
+    <th>Date</th>
+    <th>Time</th>
+</tr>
+
+</table>
+
+<br><br>
+<h2>📊 Dashboard Overview</h2>
+<p>Quick overview of your property business activity.</p>
+<p>
+    🕐 Last Updated:
+    <span id="dashboardUpdated">--</span>
+</p>
+<div class="quick-actions">
+
+    <h3>⚡ Quick Actions</h3>
+
+    <button onclick="document.getElementById('customerName').focus()">
+        ➕ Add Inquiry
+    </button>
+
+    <button onclick="document.getElementById('searchInquiry').focus()">
+        🔍 Search Inquiry
+    </button>
+
+    <button onclick="exportInquiryCSV()">
+        📥 Export CSV
+    </button>
+
+    <button onclick="printInquiryReport()">
+        🖨️ Print Report
+    </button>
+
+</div>
+        <div class="dashboard-cards">
+
+    <div class="dashboard-card">
+        <h3>📊 Total Inquiries</h3>
+        <h2 id="cardInquiryCount">0</h2>
+    </div>
+
+    <div class="dashboard-card">
+        <h3>🏡 Properties</h3>
+        <h2 id="propertyCount">0</h2>
+    </div>
+
+    <div class="dashboard-card">
+        <h3>❤️ Wishlist</h3>
+        <h2 id="wishlistCard">0</h2>
+    </div>
+    <div class="dashboard-card">
+    <h3>📅 Total Property Visits</h3>
+    <h2 id="bookingCard">0</h2>
+</div>
+<div class="dashboard-card">
+    <h3>📅 Today's Bookings</h3>
+    <h2 id="todayBookingCard">0</h2>
+</div>
+
+<div class="dashboard-card">
+    <h3>📩 Today's Inquiries</h3>
+    <h2 id="todayInquiryCard">0</h2>
+</div>
+
+</div>
+
+<br>
+<hr>
+
+<h2>🏡 Property Management</h2>
+
+<p>Manage your properties from the admin dashboard.</p>
+<!-- ===============================
+     ADD NEW PROPERTY
+================================ -->
+
+<div class="add-property-form">
+
+    <h3>➕ Add New Property</h3>
+
+    <input
+        type="text"
+        id="newPropertyName"
+        placeholder="Property Name">
+
+    <br><br>
+
+    <input
+        type="number"
+        id="newPropertyPrice"
+        placeholder="Price">
+
+    <br><br>
+
+    <input
+        type="text"
+        id="newPropertyLocation"
+        placeholder="Location">
+
+    <br><br>
+
+    <input
+        type="number"
+        id="newPropertyBedrooms"
+        placeholder="Bedrooms">
+        <br><br>
+
+<input
+    type="text"
+    id="newPropertyImage"
+    placeholder="Image filename, e.g. house4.jpg">
+
+    <br><br>
+
+    <button onclick="addNewProperty()">
+        ➕ Add Property
+    </button>
+
+</div>
+
+<br>
+
+<div class="property-management" id="propertyManagement">
+
+    <div class="admin-property-card" id="propertyCard1">
+
+        <img src="images/house1.jpg" width="150">
+
+        <h3>Luxury Villa</h3>
+
+        <p>📍 Bangalore</p>
+
+        <p>💰 ₹85,00,000</p>
+
+        <p>🛏 4 Bedrooms</p>
+
+<button onclick="editProperty('Luxury Villa', '8500000', 'Bangalore', '4')">
+    ✏️ Edit
+</button>
+
+<button onclick="confirmDeleteProperty('Luxury Villa')">
+    🗑️ Delete
+</button>
+
+    </div>
+
+    <div class="admin-property-card" id="propertyCard2">
+
+        <img src="images/house2.jpg" width="150">
+
+        <h3>Modern Apartment</h3>
+
+        <p>📍 Hyderabad</p>
+
+        <p>💰 ₹65,00,000</p>
+
+        <p>🛏 3 Bedrooms</p>
+
+<button onclick="editProperty('Modern Apartment', '6500000', 'Hyderabad', '3')">
+    ✏️ Edit
+</button>
+
+<button onclick="confirmDeleteProperty('Modern Apartment')">
+    🗑️ Delete
+</button>
+
+    </div>
+
+    <div class="admin-property-card" id="propertyCard3">
+
+        <img src="images/house3.jpg" width="150">
+
+        <h3>Family Home</h3>
+
+        <p>📍 Chennai</p>
+
+        <p>💰 ₹75,00,000</p>
+
+        <p>🛏 5 Bedrooms</p>
+
+<button onclick="editProperty('Family Home', '7500000', 'Chennai', '5')">
+    ✏️ Edit
+</button>
+
+<button onclick="confirmDeleteProperty('Family Home')">
+    🗑️ Delete
+</button>
+
+    </div>
+
+</div>
+<div id="editPropertyForm" class="edit-property-modal">
+
+    <h2>✏️ Edit Property</h2>
+
+    <input type="hidden" id="editPropertyName">
+
+    <label>Property Name</label>
+    <br>
+    <input type="text" id="editPropertyTitle">
+
+    <br><br>
+
+    <label>Price</label>
+    <br>
+    <input type="number" id="editPropertyPrice">
+
+    <br><br>
+
+    <label>Location</label>
+    <br>
+    <input type="text" id="editPropertyLocation">
+
+    <br><br>
+
+    <label>Bedrooms</label>
+    <br>
+    <input type="number" id="editPropertyBedrooms">
+
+    <br><br>
+
+    <button onclick="saveEditedProperty()">
+        💾 Save Changes
+    </button>
+
+    <button onclick="closeEditProperty()">
+        ❌ Cancel
+    </button>
+
+</div>
+<hr>
+        <h3>
+📊 Total Inquiries:
+<span id="inquiryCount">0</span>
+</h3>
+
+<br>
+        <input
+type="text"
+id="searchInquiry"
+placeholder="🔍 Search Customer"
+onkeyup="searchInquiry()">
+<br><br>
+
+<select id="propertyFilter" onchange="filterInquiry()">
+
+    <option value="">All Properties</option>
+
+    <option value="Luxury Villa">Luxury Villa</option>
+
+    <option value="Modern Apartment">Modern Apartment</option>
+
+    <option value="Family Home">Family Home</option>
+
+</select>
+
+<br><br>
+
+<input
+    type="date"
+    id="dateFilter"
+    onchange="filterByDate()">
+
+<br><br>
+
+<select id="sortInquiry" onchange="sortInquiry()">
+
+    <option value="">Sort by Name</option>
+
+    <option value="az">Name (A → Z)</option>
+
+    <option value="za">Name (Z → A)</option>
+
+</select>
+
+<br><br>
+<br><br>
+
+
+<br><br>
+<br><br>
+
+<br><br>
+        <div class="inquiry-form">
+
+<h3>➕ Add Customer Inquiry</h3>
+
+<input
+type="text"
+id="customerName"
+placeholder="Customer Name">
+
+<br><br>
+
+<input
+type="text"
+id="customerPhone"
+placeholder="Phone Number">
+
+<br><br>
+
+<input
+type="text"
+id="propertyName"
+placeholder="Property Name">
+
+<br><br>
+
+<textarea
+id="customerMessage"
+placeholder="Message"></textarea>
+
+<br><br>
+
+<button onclick="saveInquiry()">
+💾 Save Inquiry
+</button>
+
+</div>
+
+<br>
+<button onclick="exportInquiryCSV()">
+📥 Export CSV
+</button>
+<br><br>
+
+<button onclick="printInquiryReport()">
+🖨️ Print Report
+</button>
+<br><br>
+
+<button onclick="downloadInquiryPDF()">
+    📄 Export PDF
+</button>
+<button onclick="clearBookings()">
+🗑️ Clear All Bookings
+</button>
+<button onclick="clearAllInquiries()">
+🗑 Clear All Inquiries
+</button>
+
+<br><br>
+
+<br><br>
+<br><br>
+<h3>📊 Inquiry Analytics</h3>
+<div class="inquiry-date-filter">
+
+    <h3>📅 Inquiry Date Filter</h3>
+
+    <div class="date-filter-controls">
+
+        <div>
+            <label>From Date</label>
+            <input
+                type="date"
+                id="inquiryFromDate">
+        </div>
+
+        <div>
+            <label>To Date</label>
+            <input
+                type="date"
+                id="inquiryToDate">
+        </div>
+
+        <button onclick="applyInquiryDateFilter()">
+            🔍 Apply Filter
+        </button>
+
+        <button onclick="clearInquiryDateFilter()">
+            🔄 Clear
+        </button>
+
+    </div>
+
+</div>
+<div class="inquiry-summary">
+
+    <div class="inquiry-summary-card">
+        <h3>📩 Total Inquiries</h3>
+        <p id="analyticsTotalInquiries">0</p>
+    </div>
+
+    <div class="inquiry-summary-card">
+        <h3>📅 Today's Inquiries</h3>
+        <p id="analyticsTodayInquiries">0</p>
+    </div>
+
+    <div class="inquiry-summary-card">
+        <h3>🏆 Top Property</h3>
+        <p id="analyticsTopProperty">No Data</p>
+    </div>
+
+</div>
+<div class="inquiry-charts">
+
+    <div class="inquiry-chart-card">
+
+        <h3>📊 Inquiries by Property</h3>
+
+        <canvas
+            id="inquiryChart"
+            width="600"
+            height="300">
+        </canvas>
+
+    </div>
+
+
+    <div class="inquiry-chart-card">
+
+        <h3>📅 Inquiries by Date</h3>
+
+        <canvas
+            id="inquiryDateChart"
+            width="600"
+            height="300">
+        </canvas>
+
+    </div>
+
+</div>
+<br><br>
+<div class="table-container">
+        <table id="inquiryTable" border="1">
+
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Property</th>
+        <th>Message</th>
+        <th>Date & Time</th>
+        <th>Action</th>
+    </tr>
+
+        </table>
+        </div>
+        <br>
+
+<div id="pagination">
+
+    <button onclick="previousPage()">⬅ Previous</button>
+
+    <span id="pageNumber">1</span>
+
+    <button onclick="nextPage()">Next ➡</button>
+
+</div>
+
+    </section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="js/script.js"></script>
+<script>
+    loadDashboardInquiries();
+    loadInquiryChart();
+    loadInquiryDateChart();
+    loadInquiryAnalyticsSummary();
+</script>
+
+<script>
+    checkAdmin();
+</script>
+<footer class="dashboard-footer">
+    <p>🏠 Dream Homes Admin Dashboard</p>
+    <p>© 2026 Dream Homes. All rights reserved.</p>
+</footer>
+
+</body>
+
+</html>

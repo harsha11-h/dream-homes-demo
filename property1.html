@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Villa - Dream Homes</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+    <h1>🏠 Dream Homes</h1>
+</div>
+
+<nav>
+    <a href="index.html">Home</a>
+</nav>
+
+</header>
+
+<section class="property-details">
+
+    <h2>Luxury Villa</h2>
+    <p id="propertyStatus" class="status-available">
+    🟢 Available
+</p>
+<div class="status-buttons">
+
+    <button onclick="setPropertyStatus('Available')">
+        🟢 Available
+    </button>
+
+    <button onclick="setPropertyStatus('Booked')">
+        🟡 Booked
+    </button>
+
+    <button onclick="setPropertyStatus('Sold')">
+        🔴 Sold
+    </button>
+
+</div>
+    <p id="viewCount1">
+    👁️ Viewed 0 times
+</p>
+<button onclick="resetViewCount()" class="reset-view-btn">
+    🔄 Reset View Count
+</button>
+<div class="property-gallery">
+
+    <img src="images/house1.jpg" onclick="openImage(this.src)" alt="House 1">
+
+    <img src="images/house2.jpg" onclick="openImage(this.src)" alt="House 2">
+
+    <img src="images/house3.jpg" onclick="openImage(this.src)" alt="House 3">
+
+    <img src="images/house4.jpg" onclick="openImage(this.src)" alt="House 4">
+
+    <img src="images/house5.jpg" onclick="openImage(this.src)" alt="House 5">
+
+    <img src="images/house6.jpg" onclick="openImage(this.src)" alt="House 6">
+
+</div>
+<div id="imagePopup" class="image-popup">
+
+    <span class="close-popup" onclick="closeImage()">&times;</span>
+
+    <button class="prev-btn" onclick="previousImage()">❮</button>
+
+    <img id="popupImage">
+
+    <button class="next-btn" onclick="nextImage()">❯</button>
+
+</div>
+    
+<div class="property-info">
+
+    <h2>Property Information</h2>
+    <h2>🏆 Property Amenities</h2>
+
+<div class="amenities">
+
+<div class="amenity">🏊 Swimming Pool</div>
+
+<div class="amenity">🚗 2 Car Parking</div>
+
+<div class="amenity">🛡️ 24×7 Security</div>
+
+<div class="amenity">🌳 Garden</div>
+
+<div class="amenity">🏋️ Gym</div>
+
+<div class="amenity">🎮 Kids Play Area</div>
+
+<div class="amenity">🚶 Walking Track</div>
+
+<div class="amenity">⚡ Power Backup</div>
+
+</div>
+
+    <div class="info-grid">
+
+        <div>🏠 <strong>Property Type:</strong> Luxury Villa</div>
+
+        <div>💰 <strong>Price:</strong> ₹85,00,000</div>
+
+        <div>📍 <strong>Location:</strong> Bangalore</div>
+
+        <div>🛏 <strong>Bedrooms:</strong> 4</div>
+
+        <div>🚿 <strong>Bathrooms:</strong> 3</div>
+
+        <div>🚗 <strong>Parking:</strong> 2 Cars</div>
+
+        <div>📐 <strong>Area:</strong> 2800 Sq.ft</div>
+
+        <div>🏊 <strong>Swimming Pool:</strong> Yes</div>
+
+    </div>
+
+</div>
+<div class="description">
+
+<h2>Property Description</h2>
+
+<p>
+This luxury villa is located in one of Bangalore's premium residential
+areas. It features spacious bedrooms, modern bathrooms, a private
+swimming pool, landscaped gardens, covered parking, and high-quality
+interiors. The property is close to schools, hospitals, shopping malls,
+and public transportation, making it an excellent choice for families.
+</p>
+
+</div>
+<section class="property-rating">
+
+<h2>⭐ Property Rating</h2>
+
+<p class="rating-stars">⭐⭐⭐⭐☆</p>
+
+<p>4.0 / 5 (120 Reviews)</p>
+
+</section>
+<section class="location">
+
+    <h2>Property Location</h2>
+
+    <iframe
+        src="https://www.google.com/maps?q=Bangalore&output=embed"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+
+</section>
+<div class="property-actions">
+
+    <a href="tel:+917286999875">
+        <button class="call-action">📞 Call Agent</button>
+    </a>
+
+    <a href="https://wa.me/917286999875" target="_blank">
+        <button class="whatsapp-action">💬 WhatsApp</button>
+    </a>
+
+    <button class="save-action" onclick="saveProperty()">
+        ❤️ Save Property
+    </button>
+<button class="share-action" onclick="shareProperty()">
+    🔗 Share Property
+</button>
+<button class="print-action" onclick="printProperty()">
+    🖨️ Print Property
+</button>
+</div>
+<section class="similar-properties">
+
+<h2>🏡 Similar Properties</h2>
+
+<div class="similar-container">
+
+<div class="similar-card">
+
+<img src="images/house2.jpg" alt="Modern Apartment">
+
+<h3>Modern Apartment</h3>
+
+<p>📍 Hyderabad</p>
+
+<p>₹65,00,000</p>
+
+<a href="property2.html">
+<button>View Details</button>
+</a>
+
+</div>
+
+<div class="similar-card">
+
+<img src="images/house3.jpg" alt="Family Home">
+
+<h3>Family Home</h3>
+
+<p>📍 Chennai</p>
+
+<p>₹75,00,000</p>
+
+<a href="property3.html">
+<button>View Details</button>
+</a>
+
+</div>
+
+</div>
+
+</section>
+</section>
+<section class="enquiry-form">
+
+<h2>📩 Enquire About This Property</h2>
+
+<form onsubmit="return sendEnquiry()">
+
+<input
+    type="text"
+    id="enquiryName"
+    placeholder="Your Name"
+    required
+>
+
+<input
+    type="email"
+    id="enquiryEmail"
+    placeholder="Your Email"
+    required
+>
+
+<input
+    type="tel"
+    id="enquiryPhone"
+    placeholder="Phone Number"
+    required
+>
+
+<textarea
+    id="enquiryMessage"
+    placeholder="Your Message"
+    required
+></textarea>
+<button type="button" onclick="sendEnquiry()">
+    Send Enquiry
+</button>
+
+</form>
+<h2>🏦 EMI Calculator</h2>
+<div class="emi-calculator">
+
+    <input
+        type="number"
+        id="price"
+        placeholder="Property Price"
+        value="8500000"
+    >
+
+    <input
+        type="number"
+        id="years"
+        placeholder="Loan Duration (Years)"
+        value="20"
+    >
+
+    <input
+        type="number"
+        id="interest"
+        placeholder="Interest Rate (%)"
+        value="8"
+    >
+
+    <button onclick="calculateEMI()">
+        Calculate EMI
+    </button>
+
+    <div id="emiResult" class="emi-result"></div>
+
+</div>
+<div class="emi-calculator">
+
+<input
+type="number"
+id="price"
+placeholder="Property Price">
+
+<input
+type="number"
+id="years"
+placeholder="Loan Years">
+
+<input
+type="number"
+id="interest"
+placeholder="Interest Rate (%)">
+
+<button onclick="calculateEMI()">
+Calculate EMI
+</button>
+
+<div id="emiResult" class="emi-result"></div>
+<h2>🏦 Loan Eligibility Calculator</h2>
+
+<div class="loan-calculator">
+
+<input
+type="number"
+id="salary"
+placeholder="Monthly Salary">
+
+<input
+type="number"
+id="existingEmi"
+placeholder="Existing Monthly EMI">
+
+<input
+type="number"
+id="loanYears"
+placeholder="Loan Duration (Years)">
+
+<button onclick="calculateEligibility()">
+Check Eligibility
+</button>
+
+<div id="loanResult" class="emi-result"></div>
+
+</div>
+<h2>📅 Book a Property Visit</h2>
+
+<div class="visit-form">
+
+<input
+type="text"
+id="visitorName"
+placeholder="Your Name">
+
+<input
+type="email"
+id="visitorEmail"
+placeholder="Your Email">
+
+<input
+type="tel"
+id="visitorPhone"
+placeholder="Phone Number">
+
+<select id="visitProperty">
+    <option value="">Select Property</option>
+    <option value="Luxury Villa" selected>Luxury Villa</option>
+    <option value="Modern Apartment">Modern Apartment</option>
+    <option value="Family Home">Family Home</option>
+</select>
+
+<input
+type="date"
+id="visitDate">
+
+<input
+type="time"
+id="visitTime">
+
+<button type="button" onclick="bookVisit()">
+📅 Book Visit
+</button>
+
+<div id="visitResult" class="emi-result"></div>
+
+</div>
+<section class="document-checklist">
+
+<h2>📄 Home Loan Document Checklist</h2>
+
+<ul>
+
+<li>✅ Aadhaar Card</li>
+
+<li>✅ PAN Card</li>
+
+<li>✅ Passport Size Photos</li>
+
+<li>✅ Last 3 Months Salary Slips</li>
+
+<li>✅ Last 6 Months Bank Statement</li>
+
+<li>✅ Address Proof</li>
+
+<li>✅ Property Sale Agreement</li>
+
+<li>✅ Property Registration Documents</li>
+
+</ul>
+
+</section>
+</div>
+</section>
+<script src="js/script.js"></script>
+
+<script>
+saveRecentlyViewed(
+    "Luxury Villa",
+    "images/house1.jpg",
+    "₹85,00,000",
+    "Bangalore"
+);
+
+updateViewCount();
+</script>
+
+</body>
+</html>

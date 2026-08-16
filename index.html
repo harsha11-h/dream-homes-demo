@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dream Homes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+    <h1>🏠 Dream Homes</h1>
+</div>
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="#properties">Properties</a>
+
+<a href="#services">Services</a>
+
+<a href="#gallery">Gallery</a>
+
+<a href="#about">About</a>
+
+<a href="#contact">Contact</a>
+
+<a href="profile.html">Profile</a>
+
+<a href="login.html">Login</a>
+
+</nav>
+<div class="wishlist-counter">
+    ❤️ Wishlist:
+    <span id="wishlistCount">0</span>
+</div>
+<button class="clear-btn" onclick="clearWishlist()">
+    Clear Wishlist
+</button>
+</header>
+
+<section class="hero">
+    <section class="stats">
+
+<h2>Dream Homes in Numbers</h2>
+
+<div class="stats-container">
+
+<div class="stat-box">
+<h3>1500+</h3>
+<p>Happy Customers</p>
+</div>
+
+<div class="stat-box">
+<h3>850+</h3>
+<p>Properties Sold</p>
+</div>
+
+<div class="stat-box">
+<h3>25+</h3>
+<p>Cities Covered</p>
+</div>
+
+<div class="stat-box">
+<h3>15+</h3>
+<p>Years Experience</p>
+</div>
+
+</div>
+
+</section>
+<div class="hero-slider">
+
+    <img id="heroImage" src="images/house1.jpg" alt="Dream Home">
+
+    <div class="hero-content">
+
+<h2>Find Your Perfect Property</h2>
+
+<p>
+    Discover premium villas, apartments, family homes and investment properties
+    in prime locations across India.
+</p>
+        <button onclick="document.getElementById('properties').scrollIntoView({behavior:'smooth'})">
+    View Properties
+</button>
+
+    </div>
+
+</div>
+</section>
+<p id="noResult" style="display:none; text-align:center; color:red; font-size:24px; margin:30px;">
+    ❌ No Properties Found
+</p>
+
+<section class="properties" id="properties">
+
+<h2>Featured Properties</h2>
+<div class="property-container" id="publicPropertyContainer">
+<div class="property-card"
+     data-location="bangalore"
+     data-type="villa"
+     data-price="8500000"
+     data-bedrooms="4">
+     <span class="featured-badge">Featured</span>
+     <span class="status-badge sale">For Sale</span>
+
+<img src="images/house1.jpg" alt="Luxury Villa"
+
+<h3>Luxury Villa</h3>
+
+<p id="rating1">⭐⭐⭐⭐⭐ (4.9)</p>
+
+<button onclick="rateProperty('rating1')">
+⭐ Rate Property
+</button>
+
+<p>📍 Bangalore</p>
+
+<p>₹85,00,000</p>
+<p>🛏 4 Bedrooms</p>
+<a href="property1.html">
+    <button>View Details</button>
+</a>
+
+
+<button id="compareLuxuryVilla"
+onclick="addToCompare('Luxury Villa','8500000','Bangalore','4', this)">
+Compare
+</button>
+<h4>💬 Customer Reviews</h4>
+
+<div id="reviews1"></div>
+
+<input
+type="text"
+id="reviewInput1"
+placeholder="Write your review">
+
+<button onclick="addReview('reviewInput1','reviews1')">
+Submit Review
+</button>
+</div>
+
+<div class="property-card"
+     data-location="hyderabad"
+     data-type="apartment"
+     data-price="6500000"
+     data-bedrooms="3">
+     <span class="new-badge">NEW</span>
+     <span class="status-badge rent">For Rent</span>
+
+<img src="images/house2.jpg" alt="Modern Apartment"
+
+<h3>Modern Apartment</h3>
+
+<p id="rating2">⭐⭐⭐⭐☆ (4.7)</p>
+
+<button onclick="rateProperty('rating2')">
+⭐ Rate Property
+</button>
+
+<p>📍 Hyderabad</p>
+
+<p>₹65,00,000</p>
+<p>🛏 3 Bedrooms</p>
+<a href="property2.html">
+    <button>View Details</button>
+</a>
+
+<button onclick="addToCompare('Modern Apartment','6500000','Hyderabad','3', this)">
+    Compare
+</button>
+</div>
+
+<div class="property-card"
+     data-location="chennai"
+     data-type="family"
+     data-price="7500000"
+     data-bedrooms="5">
+     <span class="status-badge sold">Sold</span>
+
+<img src="images/house3.jpg" alt="Family Home"
+
+<h3>Family Home</h3>
+
+<p id="rating3">⭐⭐⭐⭐⭐ (5.0)</p>
+
+<button onclick="rateProperty('rating3')">
+⭐ Rate Property
+</button>
+
+<p>📍 Chennai</p>
+
+<p>₹75,00,000</p>
+<p>🛏 5 Bedrooms</p>
+<a href="property3.html">
+    <button>View Details</button>
+</a>
+
+<button onclick="addToCompare('Family Home','7500000','Chennai','5', this)">
+    Compare
+</button>
+</div>
+</div>
+<section class="comparison">
+
+<h2>🏠 Compare Properties</h2>
+<a href="compare.html">
+
+<button>
+    🏠 Open Compare Page
+    (<span id="compareCount">0</span>)
+</button>
+
+</a>
+
+
+<button onclick="clearCompare()">
+    Clear All Comparison
+</button>
+
+</section>
+</section>
+<section class="search">
+
+<h2>Search Property</h2>
+
+<input type="text" id="location" placeholder="Location">
+
+<select id="propertyType">
+
+    <option value="">Select Property Type</option>
+
+    <option value="villa">Villa</option>
+
+    <option value="apartment">Apartment</option>
+
+    <option value="family">Family Home</option>
+
+</select>
+
+<input
+    type="range"
+    id="budget"
+    min="0"
+    max="20000000"
+    step="500000"
+    value="20000000"
+>
+
+<p>
+    Budget:
+    <span id="budgetValue">₹2,00,00,000</span>
+</p>
+<select id="bedrooms">
+
+    <option value="">Bedrooms</option>
+
+    <option value="2">2 Bedrooms</option>
+
+    <option value="3">3 Bedrooms</option>
+
+    <option value="4">4 Bedrooms</option>
+
+    <option value="5">5 Bedrooms</option>
+
+</select>
+<select id="sortPrice" onchange="sortProperties()">
+
+    <option value="">Sort By Price</option>
+
+    <option value="low">Price: Low to High</option>
+
+    <option value="high">Price: High to Low</option>
+
+</select>
+<button onclick="searchProperty()">Search</button>
+<button onclick="resetFilters()">Reset</button>
+<button class="fav-btn" onclick="addToWishlist()">
+    ❤️ Save
+</button>
+</section>
+
+<section class="about" id="about">
+
+<h2>About Dream Homes</h2>
+
+<p>Dream Homes is one of the leading real estate companies helping families buy, sell and rent beautiful homes.</p>
+
+<div class="about-box">
+
+<div class="box">
+
+<h3>10+</h3>
+
+<p>Years Experience</p>
+
+</div>
+
+<div class="box">
+
+<h3>500+</h3>
+
+<p>Properties Sold</p>
+
+</div>
+
+<div class="box">
+
+<h3>1200+</h3>
+
+<p>Happy Customers</p>
+
+</div>
+
+<div class="box">
+
+<h3>100%</h3>
+
+<p>Trusted Company</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="services" id="services">
+
+<h2>Our Services</h2>
+
+<div class="service-container">
+
+<div class="service-card">
+
+<h3>🏠 Buy Property</h3>
+
+<p>Find your dream home with our trusted real estate experts.</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>💰 Sell Property</h3>
+
+<p>Sell your property quickly at the best market price.</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>🔑 Rent Property</h3>
+
+<p>Choose from apartments, villas, and commercial spaces.</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>🏢 Property Management</h3>
+
+<p>We manage and maintain your property professionally.</p>
+
+</div>
+
+</div>
+
+</section>
+<section class="gallery" id="gallery">
+
+<h2>Property Gallery</h2>
+
+<div class="gallery-container">
+
+<img src="images/house1.jpg" onclick="openImage(this.src)" alt="House 1">
+<img src="images/house2.jpg" onclick="openImage(this.src)" alt="House 2">
+<img src="images/house3.jpg" onclick="openImage(this.src)" alt="House 3">
+<img src="images/house4.jpg" onclick="openImage(this.src)" alt="House 4">
+<img src="images/house5.jpg" onclick="openImage(this.src)" alt="House 5">
+<img src="images/house6.jpg" onclick="openImage(this.src)" alt="House 6">
+</div>
+
+<section class="stats">
+
+    <h2>Our Achievements</h2>
+
+    <div class="stats-container">
+
+        <div class="stat-box">
+            <h3>2500+</h3>
+            <p>Happy Clients</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>1500+</h3>
+            <p>Homes Sold</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>50+</h3>
+            <p>Cities Covered</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>24/7</h3>
+            <p>Customer Support</p>
+        </div>
+
+    </div>
+
+</section>
+<section class="testimonials">
+
+<h2>What Our Clients Say</h2>
+
+<div class="testimonial-container">
+
+<div class="testimonial-card">
+
+<p>"Dream Homes helped us buy our dream villa in Bangalore. Excellent service!"</p>
+
+<h4>- Rahul Sharma</h4>
+
+</div>
+
+<div class="testimonial-card">
+
+<p>"Very professional team. They sold my apartment within two weeks."</p>
+
+<h4>- Priya Reddy</h4>
+
+</div>
+
+<div class="testimonial-card">
+
+<p>"Highly recommended. Best real estate company I have worked with."</p>
+
+<h4>- Arjun Kumar</h4>
+
+</div>
+
+</div>
+<section class="agents">
+
+<h2>Meet Our Expert Agents</h2>
+
+<div class="agent-container">
+
+    <div class="agent-card">
+
+        <img src="images/agent1.jpg" alt="John David">
+
+        <h3>John David</h3>
+
+        <p>Senior Property Consultant</p>
+
+        <button onclick="contactAgent('John David')">
+            Contact Agent
+        </button>
+
+    </div>
+
+
+    <div class="agent-card">
+
+        <img src="images/agent2.jpg" alt="Sarah Williams">
+
+        <h3>Sarah Williams</h3>
+
+        <p>Luxury Villa Specialist</p>
+
+        <button onclick="contactAgent('Sarah Williams')">
+            Contact Agent
+        </button>
+
+    </div>
+
+
+    <div class="agent-card">
+
+        <img src="images/agent3.jpg" alt="Michael Brown">
+
+        <h3>Michael Brown</h3>
+
+        <p>Commercial Property Expert</p>
+
+        <button onclick="contactAgent('Michael Brown')">
+            Contact Agent
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+</section>
+<section class="contact" id="contact">
+
+<form id="contactForm">
+
+    <input
+        type="text"
+        id="contactName"
+        placeholder="Your Name"
+        required
+    >
+
+    <input
+        type="email"
+        id="contactEmail"
+        placeholder="Your Email"
+        required
+    >
+
+    <input
+        type="text"
+        id="contactPhone"
+        placeholder="Phone Number"
+        required
+    >
+
+    <textarea
+        id="contactMessage"
+        placeholder="Write your Message"
+        required
+    ></textarea>
+
+    <button type="button" onclick="sendEnquiry()">
+        Send Message
+    </button>
+
+</form>
+</section>
+<section class="cta">
+
+    <h2>Looking for Your Dream Home?</h2>
+
+    <p>Contact our experts today and get the best deals available.</p>
+
+    <button type="button" onclick="bookConsultation()">
+    Book a Free Consultation
+</button>
+
+</section>
+<section class="booking">
+
+    <h2>📅 Book a Property Visit</h2>
+
+    <form id="bookingForm">
+
+        <input
+            type="text"
+            id="visitorName"
+            placeholder="Your Name"
+            required
+        >
+
+        <input
+            type="email"
+            id="visitorEmail"
+            placeholder="Your Email"
+            required
+        >
+
+        <input
+            type="tel"
+            id="visitorPhone"
+            placeholder="Phone Number"
+            required
+        >
+
+        <select id="visitProperty" required>
+            <option value="">Select Property</option>
+            <option>Luxury Villa</option>
+            <option>Modern Apartment</option>
+            <option>Family Home</option>
+        </select>
+
+        <input
+            type="date"
+            id="visitDate"
+            required
+        >
+
+        <input
+            type="time"
+            id="visitTime"
+            required
+        >
+
+        <button
+            type="button"
+            onclick="bookVisit()"
+        >
+            Book Visit
+        </button>
+
+    </form>
+
+</section>
+<section class="recently-viewed">
+
+    <h2>🕒 Recently Viewed Properties</h2>
+
+    <div id="recentProperties">
+
+        No recently viewed properties.
+
+    </div>
+
+</section>
+<footer>
+
+<h2 id="companyName"></h2>
+
+<p id="companyTagline"></p>
+
+<p id="companyAddress"></p>
+
+<p id="companyPhone"></p>
+
+<p id="companyEmail"></p>
+
+<p>© <span id="copyrightYear"></span> <span id="copyrightCompany"></span>. All Rights Reserved.</p>
+
+</footer>
+<a href="#" class="top-btn">↑</a>
+<div class="image-popup" id="imagePopup">
+
+    <span class="close-popup" onclick="closeImage()">×</span>
+
+    <button class="prev-btn" onclick="previousImage()">❮</button>
+
+    <img id="popupImage" src="" alt="Property Image">
+
+    <button class="next-btn" onclick="nextImage()">❯</button>
+
+</div>
+<script src="js/config.js"></script>
+<script src="js/script.js"></script>
+<script>
+alert("INDEX PAGE JS IS RUNNING");
+</script>
+<a href="https://wa.me/917286999875" class="whatsapp-btn">💬</a>
+<a href="tel:+917286999875" class="call-btn">📞</a>
+
+
+</body>
+</html>
