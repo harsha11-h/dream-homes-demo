@@ -72,3 +72,13 @@ dream-homes-demo/
 │
 └── backend/
 ```
+## 📞 Contact
+
+Interested in a customized real estate website?
+
+📧 Email: balajivandadi76@gmail.com
+
+💬 WhatsApp: 7286999875
+
+🌐 Live Demo:
+https://harsha11-h.github.io/dream-homes-demo/
