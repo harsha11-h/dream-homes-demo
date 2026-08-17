@@ -5,7 +5,9 @@ A professional real estate website demo built with HTML, CSS and JavaScript.
 ## 🌐 Live Website
 
 https://harsha11-h.github.io/dream-homes-demo/
+## 🖥️ Website Preview
 
+![Dream Homes Website](dream-homes-home.png)
 ## ✨ Features
 
 - 🏠 Property listings
