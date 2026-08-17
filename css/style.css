@@ -3068,3 +3068,21 @@ body {
 .stats {
     background: #ffffff !important;
 }
+/* FINAL HOME PAGE COLOR FIX */
+
+html,
+body {
+    background: #ffffff !important;
+}
+
+.hero {
+    background: #ffffff !important;
+}
+
+.properties {
+    background: #ffffff !important;
+}
+
+body {
+    background-color: #ffffff !important;
+}
