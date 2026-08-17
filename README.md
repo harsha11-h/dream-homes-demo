@@ -71,3 +71,4 @@ dream-homes-demo/
 │   └── property images
 │
 └── backend/
+```
