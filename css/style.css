@@ -38,11 +38,7 @@ nav a:hover{
     color:#FFD700;
 }
 
-.hero{
-    background-color:#dbeafe;
-    text-align:center;
-    padding:100px 20px;
-}
+
 
 .hero h2{
     font-size:45px;
@@ -3058,4 +3054,17 @@ header button {
     .properties h2 {
         font-size: 32px;
     }
+}
+/* FINAL HOME PAGE BACKGROUND FIX */
+
+body {
+    background: #ffffff !important;
+}
+
+.hero {
+    background: #ffffff !important;
+}
+
+.stats {
+    background: #ffffff !important;
 }
